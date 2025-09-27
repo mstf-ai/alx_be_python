@@ -1,20 +1,20 @@
 # temp_conversion_tool.py
 
-# تعريف المتغيرات العالمية للتحويل
-FAHRENHEIT_TO_CELSIUS_FACTOR = 5 / 9
-CELSIUS_TO_FAHRENHEIT_FACTOR = 9 / 5
+# تعريف المتغيرات العالمية كما هو مطلوب
+FAHRENHEIT_TO_CELSIUS_FACTOR = 5/9
+CELSIUS_TO_FAHRENHEIT_FACTOR = 9/5
 
+# تحويل من فهرنهايت إلى سلسيوس
 def convert_to_celsius(fahrenheit):
-    """تحويل درجة الحرارة من فهرنهايت إلى سلسيوس"""
     return (fahrenheit - 32) * FAHRENHEIT_TO_CELSIUS_FACTOR
 
+# تحويل من سلسيوس إلى فهرنهايت
 def convert_to_fahrenheit(celsius):
-    """تحويل درجة الحرارة من سلسيوس إلى فهرنهايت"""
     return (celsius * CELSIUS_TO_FAHRENHEIT_FACTOR) + 32
 
 def main():
     try:
-        temp_input = float(input("Enter the temperature to convert: "))
+        temperature = float(input("Enter the temperature to convert: "))
     except ValueError:
         print("Invalid temperature. Please enter a numeric value.")
         return
@@ -22,11 +22,11 @@ def main():
     unit = input("Is this temperature in Celsius or Fahrenheit? (C/F): ").strip().upper()
 
     if unit == 'C':
-        converted = convert_to_fahrenheit(temp_input)
-        print(f"{temp_input}°C is {converted}°F")
+        converted = convert_to_fahrenheit(temperature)
+        print(f"{temperature}°C is {converted}°F")
     elif unit == 'F':
-        converted = convert_to_celsius(temp_input)
-        print(f"{temp_input}°F is {converted}°C")
+        converted = convert_to_celsius(temperature)
+        print(f"{temperature}°F is {converted}°C")
     else:
         print("Invalid unit. Please enter 'C' for Celsius or 'F' for Fahrenheit.")
 
