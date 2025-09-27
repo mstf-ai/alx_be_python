@@ -1,22 +1,47 @@
-def perform_operation(num1, num2, operation):
-    """
-    Perform basic arithmetic operations.
-    Parameters:
-        num1 (float): First number
-        num2 (float): Second number
-        operation (str): One of 'add', 'subtract', 'multiply', 'divide'
-    Returns:
-        float or str: Result of the operation, or error message
-    """
-    if operation == "add":
-        return num1 + num2
-    elif operation == "subtract":
-        return num1 - num2
-    elif operation == "multiply":
-        return num1 * num2
-    elif operation == "divide":
-        if num2 == 0:
-            return "Error: Division by zero"
-        return num1 / num2
-    else:
-        return "Error: Unsupported operation"
+def display_menu():
+    print("\n=== Shopping List Manager ===")
+    print("1. Add Item")
+    print("2. Remove Item")
+    print("3. View List")
+    print("4. Exit")
+
+def main():
+    shopping_list = []
+
+    while True:
+        display_menu()
+        choice = input("Enter your choice: ")
+
+        if choice == '1':
+            item = input("Enter the item to add: ").strip()
+            if item:  # التأكد من أن المستخدم أدخل قيمة
+                shopping_list.append(item)
+                print(f"'{item}' has been added to your shopping list.")
+            else:
+                print("No item entered. Please try again.")
+
+        elif choice == '2':
+            item = input("Enter the item to remove: ").strip()
+            if item in shopping_list:
+                shopping_list.remove(item)
+                print(f"'{item}' has been removed from your shopping list.")
+            else:
+                print(f"'{item}' not found in the shopping list.")
+
+        elif choice == '3':
+            if shopping_list:
+                print("\nYour shopping list:")
+                for idx, item in enumerate(shopping_list, start=1):
+                    print(f"{idx}. {item}")
+            else:
+                print("Your shopping list is empty.")
+
+        elif choice == '4':
+            print("Goodbye!")
+            break
+
+        else:
+            print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    main()
