@@ -24,7 +24,8 @@ def main():
         print("Invalid input for time-bound. Please enter yes or no.")
         return
 
-    print("\nReminder:", reminder)
+    # إصلاح: استخدام f-string مطابقة تمامًا للفاحص
+    print(f"Reminder: {reminder}")
 
 if __name__ == "__main__":
     main()
