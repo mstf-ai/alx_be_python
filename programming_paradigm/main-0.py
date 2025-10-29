@@ -2,7 +2,8 @@ import sys
 from bank_account import BankAccount
 
 def main():
-    account = BankAccount(100)  # رصيد ابتدائي افتراضي
+    # رصيد ابتدائي 100 كما في المثال
+    account = BankAccount(100)
 
     if len(sys.argv) < 2:
         print("Usage: python main-0.py <command>:<amount>")
